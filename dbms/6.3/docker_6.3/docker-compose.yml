@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+
+  mysql_8:
+    container_name: mysql_8
+    image: mysql:8.0.29
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: "test_db"
+    user: "1001:1001"
+    volumes:
+      - ../data:/var/lib/mysql
+      - ../conf/my.cnf:/etc/my.cnf
+    ports:
+      - "3306:3306"
+
+
+
+
