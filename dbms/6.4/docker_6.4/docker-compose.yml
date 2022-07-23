@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+
+  postgres_13:
+    container_name: postgres_13
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ../data/postgres:/var/lib/postgresql/data
+      - ../data/backups:/var/lib/postgresql/backups
+    ports:
+      - "35432:5432"
