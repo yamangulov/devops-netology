@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  es:
+    image: elasticsearch:7.17.5
+    container_name: es
+    environment:
+      - node.name=netology_test
+      - cluster.name=netology_test_cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - path.repo=/usr/share/elasticsearch/snapshots
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data:/var/lib/data
+      - repo:/usr/share/elasticsearch/snapshots
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - elastic
+
+volumes:
+  data:
+    driver: local
+  repo:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
