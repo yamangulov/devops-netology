@@ -1,0 +1,16 @@
+---
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_host: 51.250.103.58
+      ansible_user: yamangulov
+vector:
+  hosts:
+    vector-01:
+      ansible_host: 130.193.52.3
+      ansible_user: yamangulov
+lighthouse:
+  hosts:
+    lighthouse-01:
+      ansible_host: 51.250.104.225
+      ansible_user: yamangulov
