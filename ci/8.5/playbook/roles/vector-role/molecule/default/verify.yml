@@ -1,0 +1,12 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Vector version
+      command: "vector --version"
+      register: version
+    - name: Verifying vector
+      ansible.builtin.assert:
+        that:
+          - version

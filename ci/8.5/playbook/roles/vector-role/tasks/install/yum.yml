@@ -1,0 +1,6 @@
+---
+- name: Install vector package
+  become: true
+  ansible.builtin.yum:
+    name:
+      - vector-{{ vector_subversion }}.x86_64.rpm

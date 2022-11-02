@@ -1,2 +1,15 @@
 /.idea/
 /virtualization/5.2/src/vagrant/.vagrant/
+/dbms/6.3/data/
+/dbms/6.2/src/main/resources/data/
+/dbms/6.4/data/
+/terraform/7.2/src/terraform/.terraform.lock.hcl
+/terraform/7.5/.idea/
+/virtualization/5.4/src/terraform/.terraform.lock.hcl
+/virtualization/5.4/src/terraform/terraform.tfstate
+/virtualization/5.4/src/terraform/terraform.tfstate.backup
+/virtualization/5.5/src/terraform/.terraform.lock.hcl
+/virtualization/5.5/src/terraform/terraform.tfstate
+/virtualization/5.5/src/terraform/terraform.tfstate.backup
+/virtualization/5.4/src/terraform/.terraform/
+/virtualization/5.5/src/terraform/.terraform/

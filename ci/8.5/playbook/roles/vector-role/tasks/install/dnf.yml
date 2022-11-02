@@ -1,0 +1,7 @@
+---
+- name: Install vector package
+  become: true
+  ansible.builtin.yum:
+    disable_gpg_check: true
+    name:
+      - vector-{{ vector_subversion }}.x86_64.rpm

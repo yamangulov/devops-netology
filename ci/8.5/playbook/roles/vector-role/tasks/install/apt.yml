@@ -1,0 +1,5 @@
+---
+- name: Install vector package
+  become: true
+  ansible.builtin.apt:
+    deb: "./vector_{{ vector_subversion }}_amd64.deb"

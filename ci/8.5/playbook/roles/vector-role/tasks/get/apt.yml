@@ -1,0 +1,7 @@
+---
+- name: Get vector distrib
+  become: true
+  ansible.builtin.get_url:
+    url: "https://packages.timber.io/vector/{{ vector_version }}/vector_{{ vector_subversion }}_amd64.deb"
+    dest: "./vector_{{ vector_subversion }}_amd64.deb"
+

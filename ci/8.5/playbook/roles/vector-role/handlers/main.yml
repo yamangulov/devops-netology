@@ -1,0 +1,10 @@
+---
+#- name: Start vector
+#  become: true
+#  ansible.builtin.service:
+#    name: vector
+#    state: restarted
+
+# ни в одном дистрибутиве не работает, получаем всегда примерно такой ответ
+# fatal: [centos_7]: FAILED! => {"changed": false, "msg": "Service is in unknown state", "status": {}}
+# поэтому для проверки используем verify.yml а не хандлер

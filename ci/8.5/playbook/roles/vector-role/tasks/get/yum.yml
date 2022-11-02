@@ -1,0 +1,6 @@
+---
+- name: Get vector distrib
+  ansible.builtin.get_url:
+    url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_subversion }}.x86_64.rpm"
+    dest: "./vector-{{ vector_subversion }}.x86_64.rpm"
+
