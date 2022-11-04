@@ -1,0 +1,5 @@
+---
+- name: run my_test module from roles
+  hosts: localhost
+  roles:
+    - my_test_role

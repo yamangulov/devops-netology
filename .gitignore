@@ -13,3 +13,4 @@
 /virtualization/5.5/src/terraform/terraform.tfstate.backup
 /virtualization/5.4/src/terraform/.terraform/
 /virtualization/5.5/src/terraform/.terraform/
+/ci/8.6/collection/ansible/

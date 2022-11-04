@@ -1,0 +1,5 @@
+---
+- name: run my_test role
+  my_test:
+      path: "/tmp/file_from_roles.txt"
+      content: "content from roles"
