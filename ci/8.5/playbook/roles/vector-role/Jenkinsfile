@@ -1,0 +1,26 @@
+pipeline {
+    agent {
+        label 'linux'
+    }
+
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                git branch: 'roles-for-jenkins', credentialsId: '8c017d3f-65ac-46fe-bffc-783e39f26300', url: 'git@github.com:yamangulov/devops-netology.git'
+            }
+        }
+        stage('Prepare dependencies') {
+            steps {
+                sh '''pip3 install --upgrade requests==2.23.0
+                ansible-galaxy collection install community.docker
+                pip3 install molecule molecule-docker'''
+            }
+        }
+        stage('Run molecule') {
+            steps {
+                sh '''cd ci/8.5/playbook/roles/vector-role
+                molecule test'''
+            }
+        }
+    }
+}
