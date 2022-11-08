@@ -1,0 +1,24 @@
+node("linux"){
+    def runOnProd = env.prod_run
+    stage("Git checkout"){
+        git credentialsId: '8c017d3f-65ac-46fe-bffc-783e39f26300', url: 'git@github.com:aragastmatb/example-playbook.git'
+    }
+    if (runOnProd == 'true') {
+        stage("Sample define secret_check"){
+            secret_check=true
+        }
+    } else {
+        stage("Sample define secret_check"){
+            secret_check=false
+        }
+    }
+    stage("Run playbook"){
+        if (secret_check){
+            sh 'ansible-playbook site.yml -i inventory/prod.yml'
+        }
+        else{
+            echo 'need more action'
+        }
+        
+    }
+}

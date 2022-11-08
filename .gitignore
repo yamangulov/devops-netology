@@ -14,3 +14,5 @@
 /virtualization/5.4/src/terraform/.terraform/
 /virtualization/5.5/src/terraform/.terraform/
 /ci/8.6/collection/ansible/
+/ci/9.3/example/.scannerwork/
+/ci/9.3/mvn/target/
