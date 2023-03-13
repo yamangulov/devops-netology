@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: two-apps
+  labels:
+    app: two-apps
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: two-apps
+  template:
+    metadata:
+      labels:
+        app: two-apps
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.23.3
+        ports:
+        - containerPort: 80
+      - name: network-multitool
+        image: wbitt/network-multitool
+        env:
+        - name: HTTP_PORT
+          value: "8080"
+        ports:
+        - containerPort: 8080
+          name: http
+
