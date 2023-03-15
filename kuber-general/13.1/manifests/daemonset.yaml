@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: multitool
+  labels:
+    tier: node
+    app: multitool
+spec:
+  selector:
+    matchLabels:
+      tier: node
+      app: multitool
+  template:
+    metadata:
+      labels:
+        tier: node
+        app: multitool
+    spec:
+      hostNetwork: true
+      tolerations:
+      - operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: multitool
+        image: praqma/network-multitool
+        volumeMounts:
+        - name: log-volume
+          mountPath: /var/log/nodelog
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "20Mi"
+          limits:
+            cpu: "10m"
+            memory: "20Mi"
+        securityContext:
+          runAsUser: 0
+          capabilities:
+            add: ["NET_ADMIN"]
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /var/log

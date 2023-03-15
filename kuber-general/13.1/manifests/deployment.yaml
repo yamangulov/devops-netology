@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: two-apps
+  labels:
+    app: two-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: two-apps
+  template:
+    metadata:
+      labels:
+        app: two-apps
+      name: two-apps
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo test >> /output/test.txt; sleep 5; done']
+        volumeMounts:
+        - mountPath: /output
+          name: vol
+
+      - name: multitool
+        image: wbitt/network-multitool
+        volumeMounts:
+        - mountPath: /input
+          name: vol
+
+      volumes:
+      - name: vol
+        hostPath:
+          path: /tmp/data
+
