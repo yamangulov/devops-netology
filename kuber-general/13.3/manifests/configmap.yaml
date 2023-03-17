@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: two-apps-configmap
+data:
+  HTTP_PORT: "1180"
+  HTTPS_PORT: "11443"

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: page-configmap
+data:
+  index.html:  |
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Test page from configmap</title>
+    </head>
+    <body>
+      <h1>Test page from configmap</h1>
+    </body>
+    </html>
+

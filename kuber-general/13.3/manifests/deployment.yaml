@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: two-apps
+  labels:
+    app: two-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: two-apps
+  template:
+    metadata:
+      labels:
+        app: two-apps
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.23.3
+        ports:
+        - containerPort: 80
+      - name: multitool
+        image: wbitt/network-multitool
+        env:
+          - name: HTTP_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: two-apps-configmap
+                key: "HTTP_PORT"
+
+          - name: HTTPS_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: two-apps-configmap
+                key: "HTTPS_PORT"
